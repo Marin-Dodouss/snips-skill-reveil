@@ -47,7 +47,7 @@ def intent_received(hermes, intent_message):
 	print(intent_message.intent.intent_name)
 	print ()
 	
-	if intent_message.intent.intent_name == 'Joseph:askTime':
+	if intent_message.intent.intent_name == 'Watson:DeleteReveil':
 
 		now = datetime.now(timezone('Europe/Paris'))
 		day=now.strftime(" %A %d")
