@@ -53,20 +53,15 @@ def intent_received(hermes, intent_message):
 		day=now.strftime(" %A %d")
 		month=now.strftime(" %B")
 		year=now.strftime(" %Y")
-		sentence_date='Nous sommes le '
-		sentence_date+=day+month+year+"."
-		print(sentence_date)
+		answer='Le reveil a bien été supprimé '
+		print(answer)
 		
-		sentence = 'Il est '
 		print(intent_message.intent.intent_name)
+		print(answer)
 
-		sentence += verbalise_hour(now.hour) + " " + verbalise_minute(now.minute)
-		print(sentence)
+		hermes.publish_end_session(intent_message.session_id, answer)
 
-		hermes.publish_end_session(intent_message.session_id, sentence_date)
-		hermes.publish_end_session(intent_message.session_id, sentence)
-
-	elif intent_message.intent.intent_name == 'Joseph:greetings':
+	elif intent_message.intent.intent_name == 'Watson:AddReveil':
 
 		hermes.publish_end_session(intent_message.session_id, "De rien!")
 
